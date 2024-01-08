@@ -20,11 +20,11 @@ import java.util.List;
 public class JwtIssuer {
     private final JwtProperties jwtProperties;
 
-    public String issueToken(String userId, String email, List<String> roles) {
+    public String issueToken(String userId, String username, List<String> roles) {
         return JWT.create()
                 .withSubject(userId)
                 .withExpiresAt(Instant.now().plus(Duration.of(1, ChronoUnit.HOURS)))
-                .withClaim("email", email)
+                .withClaim("username", username)
                 .withClaim("roles", roles)
                 .sign(Algorithm.HMAC256(jwtProperties.getSecretKey()));
 
