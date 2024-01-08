@@ -4,6 +4,7 @@ import com.iamsajan.model.security.LoginRequest;
 import com.iamsajan.model.security.LoginResponse;
 import com.iamsajan.security.JwtIssuer;
 import com.iamsajan.security.UserPrincipal;
+import com.iamsajan.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,24 +23,10 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("api/v1")
 public class AuthController {
-    private final JwtIssuer jwtIssuer;
-    private final AuthenticationManager authenticationManager;
-
+    private final AuthService authService;
     @PostMapping("/auth/login")
     public LoginResponse login(@RequestBody @Validated LoginRequest loginRequest) {
-        var authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        var principal = (UserPrincipal) authentication.getPrincipal();
-
-        var roles = principal.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .toList();
-
-        var token = jwtIssuer.issueToken(principal.getUserId(), principal.getUsername(), roles);
-        return LoginResponse.builder()
-                .accessToken(token)
-                .build();
+        return authService.attemptLogin(loginRequest.getUsername(), loginRequest.getPassword());
     }
 
     @GetMapping("/secured-path")
