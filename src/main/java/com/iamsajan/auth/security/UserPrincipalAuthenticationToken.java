@@ -1,4 +1,4 @@
-package com.iamsajan.security;
+package com.iamsajan.auth.security;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 

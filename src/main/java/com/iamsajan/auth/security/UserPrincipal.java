@@ -1,4 +1,4 @@
-package com.iamsajan.security;
+package com.iamsajan.auth.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;

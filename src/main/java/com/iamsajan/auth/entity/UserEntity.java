@@ -1,4 +1,4 @@
-package com.iamsajan.entity;
+package com.iamsajan.auth.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.iamsajan.model.security;
+package com.iamsajan.auth.model;
 
 import lombok.Builder;
 import lombok.Getter;

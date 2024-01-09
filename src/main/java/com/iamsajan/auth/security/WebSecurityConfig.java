@@ -1,4 +1,4 @@
-package com.iamsajan.security;
+package com.iamsajan.auth.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
-package com.iamsajan.service;
+package com.iamsajan.auth.service;
 
-import com.iamsajan.entity.UserEntity;
+import com.iamsajan.auth.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

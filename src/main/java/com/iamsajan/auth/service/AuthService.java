@@ -1,8 +1,8 @@
-package com.iamsajan.service;
+package com.iamsajan.auth.service;
 
-import com.iamsajan.model.security.LoginResponse;
-import com.iamsajan.security.JwtIssuer;
-import com.iamsajan.security.UserPrincipal;
+import com.iamsajan.auth.model.LoginResponse;
+import com.iamsajan.auth.security.JwtIssuer;
+import com.iamsajan.auth.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

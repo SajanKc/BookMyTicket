@@ -1,6 +1,6 @@
-package com.iamsajan.security;
+package com.iamsajan.auth.security;
 
-import com.iamsajan.service.UserService;
+import com.iamsajan.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

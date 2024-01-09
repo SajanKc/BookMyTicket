@@ -1,6 +1,6 @@
-package com.iamsajan.controller;
+package com.iamsajan.auth.controller;
 
-import com.iamsajan.security.UserPrincipal;
+import com.iamsajan.auth.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

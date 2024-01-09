@@ -1,4 +1,4 @@
-package com.iamsajan.security;
+package com.iamsajan.auth.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,16 +1,11 @@
-package com.iamsajan.controller;
+package com.iamsajan.auth.controller;
 
-import com.iamsajan.model.security.LoginRequest;
-import com.iamsajan.model.security.LoginResponse;
-import com.iamsajan.security.JwtIssuer;
-import com.iamsajan.security.UserPrincipal;
-import com.iamsajan.service.AuthService;
+import com.iamsajan.auth.model.LoginRequest;
+import com.iamsajan.auth.model.LoginResponse;
+import com.iamsajan.auth.security.UserPrincipal;
+import com.iamsajan.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
