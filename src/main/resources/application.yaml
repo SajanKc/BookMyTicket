@@ -1,3 +1,17 @@
 security:
   jwt:
     secret-key: ohmygodthisissecretkeyok
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_my_ticket
+    username: postgres
+    password: sajan123
+    driver-class-name: org.postgresql.Driver
+
+    # jpa configuration
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
