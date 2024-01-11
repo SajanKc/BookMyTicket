@@ -1,13 +1,11 @@
-package com.iamsajan.app.model;
+package com.iamsajan.app.dto.request;
 
-import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Entity
-public class City {
-    @Id
-    @Column(length = 50)
+@Builder
+public class CityRequestDto {
     private String id;
     private String name;
     private String state;
