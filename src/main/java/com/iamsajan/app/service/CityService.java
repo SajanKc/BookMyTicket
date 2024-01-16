@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface CityService {
 
     CityResponseDto createCity(CityRequestDto cityRequestDto);
@@ -16,5 +15,7 @@ public interface CityService {
 
     void deleteCity(String id);
 
-    City updateCity(CityRequestDto cityRequestDto);
+    CityResponseDto updateCity(CityRequestDto cityRequestDto);
+
+    City findById(String cityId);
 }

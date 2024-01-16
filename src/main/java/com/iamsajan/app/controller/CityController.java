@@ -36,10 +36,10 @@ public class CityController {
         return ResponseEntity.ok().body(cityResponseDto);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<City> updateCity(@RequestBody CityRequestDto cityRequestDto) {
+    @PutMapping("/update")
+    public ResponseEntity<CityResponseDto> updateCity(@RequestBody CityRequestDto cityRequestDto) {
         log.info("Request to update city {}", cityRequestDto);
-        City updatedCity = cityService.updateCity(cityRequestDto);
+        CityResponseDto updatedCity = cityService.updateCity(cityRequestDto);
         return ResponseEntity.ok().body(updatedCity);
     }
 

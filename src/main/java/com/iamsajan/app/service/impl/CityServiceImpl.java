@@ -10,11 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@Repository
+@Service
 @RequiredArgsConstructor
 public class CityServiceImpl implements CityService {
     private static final Logger log = LoggerFactory.getLogger(CityServiceImpl.class);
@@ -35,15 +33,9 @@ public class CityServiceImpl implements CityService {
         city.setZipCode(cityRequestDto.getZipCode());
 
         City savedCity = cityRepository.save(city);
+        log.info("City created {}", savedCity);
 
-        CityResponseDto cityResponseDto = CityResponseDto.builder()
-                .id(savedCity.getId())
-                .name(savedCity.getName())
-                .state(savedCity.getState())
-                .zipCode(savedCity.getZipCode())
-                .build();
-        log.info("City created {}", cityResponseDto);
-        return cityResponseDto;
+        return cityResponseMapper(savedCity);
     }
 
     @Override
@@ -59,9 +51,9 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City updateCity(CityRequestDto cityRequestDto) {
+    public CityResponseDto updateCity(CityRequestDto cityRequestDto) {
         log.info("Request to update city {}", cityRequestDto);
-        if(cityRequestDto.getId() == null){
+        if (cityRequestDto.getId() == null) {
             log.warn("City id cannot be null !!!");
             throw new RuntimeException("City id cannot be null !!!");
         }
@@ -73,6 +65,22 @@ public class CityServiceImpl implements CityService {
 
         City savedCity = cityRepository.save(city);
         log.info("City updated {}", savedCity);
-        return savedCity;
+
+        return cityResponseMapper(savedCity);
+    }
+
+    @Override
+    public City findById(String cityId) {
+        return cityRepository.findById(cityId)
+                .orElseThrow(() -> new RuntimeException("City not found !!!"));
+    }
+
+    public CityResponseDto cityResponseMapper(City city) {
+        return CityResponseDto.builder()
+                .id(city.getId())
+                .name(city.getName())
+                .state(city.getState())
+                .zipCode(city.getZipCode())
+                .build();
     }
 }

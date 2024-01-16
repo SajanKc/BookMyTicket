@@ -1,13 +1,14 @@
 package com.iamsajan.app.dto.response;
 
+import com.iamsajan.app.model.City;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class CityResponseDto {
+public class CinemaResponseDto {
     private String id;
     private String name;
-    private String state;
-    private String zipCode;
+    private int totalCinemaHalls;
+    private City cityId;
 }
