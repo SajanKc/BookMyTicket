@@ -91,6 +91,11 @@ public class CinemaServiceImpl implements CinemaService {
         cinemaRepository.delete(cinema);
     }
 
+    @Override
+    public Cinema findById(String cinemaId) {
+        return cinemaRepository.findById(cinemaId).orElseThrow(() -> new RuntimeException("Cinema not found !!!"));
+    }
+
     public CinemaResponseDto cinemaResponseMapper(Cinema cinema) {
         return CinemaResponseDto.builder()
                 .id(cinema.getId())

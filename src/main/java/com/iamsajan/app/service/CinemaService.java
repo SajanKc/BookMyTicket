@@ -14,4 +14,6 @@ public interface CinemaService {
     CinemaResponseDto updateCinema(CinemaRequestDto cinemaRequestDto);
 
     void deleteCinema(String id);
+
+    Cinema findById(String cinemaId);
 }
