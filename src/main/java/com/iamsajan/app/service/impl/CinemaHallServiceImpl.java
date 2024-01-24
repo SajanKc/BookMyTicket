@@ -72,6 +72,12 @@ public class CinemaHallServiceImpl implements CinemaHallService {
     }
 
     @Override
+    public CinemaHall findCinemaHallById(String cinemaHallId) {
+        return cinemaHallRepository.findById(cinemaHallId)
+                .orElseThrow(() -> new RuntimeException("Cinema hall not found !!!"));
+    }
+
+    @Override
     public CinemaHallResponseDto createCinemaHall(CinemaHallRequestDto cinemaHallRequestDto) {
         log.info("Request to create cinema hall {}", cinemaHallRequestDto);
         if (cinemaHallRequestDto == null) {

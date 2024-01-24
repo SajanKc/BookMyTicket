@@ -2,6 +2,7 @@ package com.iamsajan.app.service;
 
 import com.iamsajan.app.dto.request.CinemaHallRequestDto;
 import com.iamsajan.app.dto.response.CinemaHallResponseDto;
+import com.iamsajan.app.model.CinemaHall;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,4 +15,6 @@ public interface CinemaHallService {
     CinemaHallResponseDto updateCinemaHall(CinemaHallRequestDto cinemaHallRequestDto);
 
     void deleteCinemaHall(String id);
+
+    CinemaHall findCinemaHallById(String cinemaHallId);
 }

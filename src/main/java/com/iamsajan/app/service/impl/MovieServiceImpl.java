@@ -92,6 +92,12 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.deleteById(id);
     }
 
+    @Override
+    public Movie findMovieById(String movieId) {
+        return movieRepository.findById(movieId)
+                .orElseThrow(() -> new RuntimeException("Movie not found !!!"));
+    }
+
     private MovieResponseDto movieResponseMapper(Movie savedMovie) {
         return MovieResponseDto.builder()
                 .id(savedMovie.getId())
