@@ -87,8 +87,8 @@ public class CinemaServiceImpl implements CinemaService {
     @Override
     public void deleteCinema(String id) {
         log.info("Request to delete cinema {}", id);
-        Cinema cinema = cinemaRepository.findById(id).orElseThrow(() -> new RuntimeException("Cinema not found !!!"));
-        cinemaRepository.delete(cinema);
+        if (id == null) throw new RuntimeException("Cinema id cannot be null !!!");
+        cinemaRepository.deleteById(id);
     }
 
     @Override

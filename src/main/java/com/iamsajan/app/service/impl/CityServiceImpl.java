@@ -47,6 +47,7 @@ public class CityServiceImpl implements CityService {
     @Override
     public void deleteCity(String id) {
         log.warn("Request to delete city {}", id);
+        if (id == null) throw new RuntimeException("City id cannot be null !!!");
         cityRepository.deleteById(id);
     }
 

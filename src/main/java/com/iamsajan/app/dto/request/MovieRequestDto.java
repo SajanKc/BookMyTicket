@@ -1,17 +1,13 @@
-package com.iamsajan.app.model;
+package com.iamsajan.app.dto.request;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-@Entity
-public class Movie {
-    @Id
-    @Column(length = 50)
+@Builder
+public class MovieRequestDto {
     private String id;
     private String title;
     private String description;
