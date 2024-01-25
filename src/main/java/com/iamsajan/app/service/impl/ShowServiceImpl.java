@@ -106,6 +106,12 @@ public class ShowServiceImpl implements ShowService {
         showRepository.deleteById(id);
     }
 
+    @Override
+    public Show findShowById(String showId) {
+        return showRepository.findById(showId)
+                .orElseThrow(() -> new RuntimeException("Show not found !!!"));
+    }
+
     private ShowResponseDto saveAndGetShowResponseDto(ShowRequestDto showRequestDto, Movie movie, CinemaHall cinemaHall, Show show) {
         show.setDateTime(showRequestDto.getDateTime());
         show.setStartTime(showRequestDto.getStartTime());

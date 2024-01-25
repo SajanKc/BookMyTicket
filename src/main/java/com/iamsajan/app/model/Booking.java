@@ -1,9 +1,11 @@
 package com.iamsajan.app.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
+@Data
 @Entity
 public class Booking {
     @Id

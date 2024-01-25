@@ -82,6 +82,12 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
 
+    @Override
+    public Customer findCustomerById(String customerId) {
+        return customerRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+    }
+
     private CustomerResponseDto customerResponseMapper(Customer customer) {
         return CustomerResponseDto.builder()
                 .id(customer.getId())
