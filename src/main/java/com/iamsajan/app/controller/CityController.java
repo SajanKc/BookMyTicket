@@ -43,7 +43,7 @@ public class CityController {
         return ResponseEntity.ok().body(updatedCity);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteCity(@PathVariable("id") String id) {
         log.info("Request to delete city {}", id);
         cityService.deleteCity(id);

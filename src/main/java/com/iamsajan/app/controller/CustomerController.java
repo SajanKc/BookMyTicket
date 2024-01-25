@@ -46,6 +46,6 @@ public class CustomerController {
     public ResponseEntity<Void> deleteCustomer(@PathVariable String id) {
         log.info("Request to delete customer {}", id);
         customerService.deleteCustomer(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

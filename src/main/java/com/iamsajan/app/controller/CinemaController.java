@@ -48,6 +48,6 @@ public class CinemaController {
     public ResponseEntity<Void> deleteCinema(@PathVariable String id) {
         log.info("Request to delete cinema {}", id);
         cinemaService.deleteCinema(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

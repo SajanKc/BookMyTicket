@@ -29,24 +29,24 @@ public class ShowController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ShowResponseDto>> getAllShows(Pageable pageable){
+    public ResponseEntity<List<ShowResponseDto>> getAllShows(Pageable pageable) {
         log.info("Request to get a page of Shows");
         Page<ShowResponseDto> showList = showService.getAllShows(pageable);
         return ResponseEntity.ok().body(showList.getContent());
     }
 
     @PutMapping("/update")
-    public ResponseEntity<ShowResponseDto> updateShow(ShowRequestDto showRequestDto){
+    public ResponseEntity<ShowResponseDto> updateShow(ShowRequestDto showRequestDto) {
         log.info("Request to update show {}", showRequestDto);
         ShowResponseDto showResponseDto = showService.updateShow(showRequestDto);
         return ResponseEntity.ok().body(showResponseDto);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteShow(@PathVariable String id){
+    public ResponseEntity<Void> deleteShow(@PathVariable String id) {
         log.info("Request to delete show {}", id);
         showService.deleteShow(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

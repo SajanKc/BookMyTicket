@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/cinemahall")
+@RequestMapping("/api/v1/cinema-hall")
 public class CinemaHallController {
 
     private final Logger log = LoggerFactory.getLogger(CinemaHallController.class);
@@ -46,6 +46,6 @@ public class CinemaHallController {
     public ResponseEntity<Void> deleteCinemaHall(@PathVariable String id) {
         log.info("Request to delete cinema hall {}", id);
         cinemaHallService.deleteCinemaHall(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

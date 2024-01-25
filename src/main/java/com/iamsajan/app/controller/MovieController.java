@@ -46,6 +46,6 @@ public class MovieController {
     public ResponseEntity<Void> deleteMovie(@PathVariable String id) {
         log.info("Request to delete movie {}", id);
         movieService.deleteMovie(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }
