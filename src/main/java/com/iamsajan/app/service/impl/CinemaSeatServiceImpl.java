@@ -92,6 +92,12 @@ public class CinemaSeatServiceImpl implements CinemaSeatService {
         cinemaSeatRepository.deleteById(id);
     }
 
+    @Override
+    public CinemaSeat findCinemaById(String cinemaSeatId) {
+        return cinemaSeatRepository.findById(cinemaSeatId)
+                .orElseThrow(() -> new RuntimeException("CinemaSeat not found"));
+    }
+
     private CinemaSeatResponseDto cinemaSeatResponseMapper(CinemaSeat CinemaSeat) {
         return CinemaSeatResponseDto.builder()
                 .id(CinemaSeat.getId())

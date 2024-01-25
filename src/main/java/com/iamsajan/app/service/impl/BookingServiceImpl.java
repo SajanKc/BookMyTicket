@@ -126,4 +126,10 @@ public class BookingServiceImpl implements BookingService {
         }
         bookingRepository.deleteById(id);
     }
+
+    @Override
+    public Booking findBookingById(String bookingId) {
+        return bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new RuntimeException("Booking not found !!!"));
+    }
 }

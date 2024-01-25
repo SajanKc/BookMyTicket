@@ -2,6 +2,7 @@ package com.iamsajan.app.service;
 
 import com.iamsajan.app.dto.request.BookingRequestDto;
 import com.iamsajan.app.dto.response.BookingResponseDto;
+import com.iamsajan.app.model.Booking;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +14,6 @@ public interface BookingService {
     BookingResponseDto updateBooking(BookingRequestDto bookingRequestDto);
 
     void deleteBooking(String id);
+
+    Booking findBookingById(String bookingId);
 }
